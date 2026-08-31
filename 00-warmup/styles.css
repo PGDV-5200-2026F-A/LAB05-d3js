@@ -22,3 +22,9 @@ section {
 section:last-of-type {
   border-bottom: 3px #111 solid;
 }
+
+.svg-plot {
+  display: block;
+  width: 100%;
+  margin: 20px 0 0;
+}

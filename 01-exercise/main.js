@@ -13,9 +13,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const weatherUrl = METEO_WEATHER_URL.replace("_METEO_LAT_", city0.latitude).replace("_METEO_LON_", city0.longitude);
     const weatherRes = await fetch(weatherUrl);
     const weatherData = await weatherRes.json();
+
     const temperatures = weatherData.hourly.temperature_2m;
     const times = weatherData.hourly.time;
 
-    // TODO: D3.js
+    const hourlyTemperatures = [];
+    for (let idx = 0; idx < times.length; idx++) {
+      hourlyTemperatures.push({ time: times[idx], temperature: temperatures[idx] });
+    }
+
+    const svgWidth = 0; // TODO: get from #weather-svg
+    const svgHeight = parseInt(0.66 * svgWidth);
+    const leftMargin = 20;
+    const bottomMargin = 40;
+    const plotWidth = svgWidth - leftMargin;
+    const plotHeight = svgHeight - bottomMargin;
+
+    // size svg
+    const svg = d3.select("#weather-svg")
+      .attr("width", svgWidth)
+      .attr("height", svgHeight);
+
+    // TODO: xScale (scalePoint)
+    // TODO: yScale (scaleLinear)
+
+    // TODO: bind and draw data
+
+    // TODO: x-axis
+    // TODO: y-axis
   });
 });
